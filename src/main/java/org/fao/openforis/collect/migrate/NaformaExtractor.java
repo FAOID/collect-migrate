@@ -38,12 +38,11 @@ public class NaformaExtractor {
 
 	public DataTransformation getNaturalForest() throws InvalidExpressionException {
 		Schema schema = survey.getSchema();
-		String axisPath = "/cluster/natural_forest";
+		String axisPath = "/cluster/permanent_plot_a";
 		EntityDefinition rowDefn = (EntityDefinition) schema.getByPath(axisPath);
 		ColumnProvider provider = new ColumnProviderChain(
 				new PivotExpressionColumnProvider("/",//parent() 
-					new SingleAttributeColumnProvider("tract_no", "Tract"),
-					new SingleAttributeColumnProvider("subplot_no", "Subplot")),
+					new SingleAttributeColumnProvider("sector", "Tract")),
 				new AutomaticColumnProvider(rowDefn));
 		return new DataTransformation(axisPath, provider);
 	}
@@ -129,6 +128,6 @@ public class NaformaExtractor {
 
 		// Import informant interviews		
 		DataTransformation xform1 = naformaExtractor.getNaturalForest();
-		naformaExtractor.extractData("E:\\data\\export\\natural_forest.csv",xform1);
+		naformaExtractor.extractData("E:\\data\\plota.csv",xform1);
 	}
 }

@@ -12,7 +12,7 @@
     <dependency>
     	<groupId>org.openforis.collect</groupId>
     	<artifactId>collect-core</artifactId>
-    	<version>3.0-SNAPSHOT</version>
+    	<version>3.0-Alpha2-SNAPSHOT</version>
     </dependency>
 	<dependency>
 		<groupId>postgresql</groupId>
